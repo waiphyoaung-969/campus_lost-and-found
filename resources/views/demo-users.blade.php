@@ -18,7 +18,7 @@
                 <a class="button button-primary full" href="{{ route('demo.login',['poster'=>1]) }}">Continue as Alex ↗</a>
             </article>
         </div>
-        <p class="helper" style="margin-top:1.5rem">Demo accounts are available only on this local development site.</p>
+        <p class="helper" style="margin-top:1.5rem">These shared demo accounts are for trying the sample workflow. Avoid adding real personal information.</p>
     </div>
 </section>
 @endsection

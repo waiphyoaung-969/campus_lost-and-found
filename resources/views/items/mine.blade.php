@@ -7,12 +7,12 @@
         <a class="button button-primary" href="{{ route('items.create') }}">＋ Report item</a>
     </div>
 
-    @if(app()->environment('local'))
+    @if(str_ends_with(auth()->user()->email, '@campus.demo'))
         <div class="glass aside-card" style="margin-bottom:1.5rem">
             <div class="eyebrow">TWO PERSON DEMO</div><h3>Try both sides of a claim</h3>
             <p>Maya is the claimant. Alex found the sample bottle and can approve or decline her private claim.</p>
             <div class="demo-switches">
-                <a class="button button-secondary" href="{{ route('demo.login') }}">Switch to Maya · Claimant</a>
+                <a class="button button-secondary" href="{{ route('demo.login',['claimant'=>1]) }}">Switch to Maya · Claimant</a>
                 <a class="button button-secondary" href="{{ route('demo.login',['poster'=>1]) }}">Switch to Alex · Finder</a>
             </div>
         </div>

@@ -54,11 +54,10 @@ class CampusController extends Controller
 
     public function demoLogin(Request $request)
     {
-        abort_unless(app()->environment('local'), 404);
-        if (!$request->boolean('admin') && !$request->boolean('poster') && !$request->boolean('claimant')) {
+        $admin = $request->boolean('admin') && app()->environment('local');
+        if (!$admin && !$request->boolean('poster') && !$request->boolean('claimant')) {
             return view('demo-users');
         }
-        $admin = (bool) $request->query('admin');
         $poster = (bool) $request->query('poster');
         $email = $admin ? 'admin@campus.demo' : ($poster ? 'student@campus.demo' : 'member@campus.demo');
         $name = $admin ? 'Campus Admin' : ($poster ? 'Alex Morgan' : 'Maya Chen');

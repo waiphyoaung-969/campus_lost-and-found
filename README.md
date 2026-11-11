@@ -12,7 +12,7 @@ Requirements: PHP 8.3+, Composer, and SQLite. Enable PHP `fileinfo` for image va
 4. Start the site: `php artisan serve`
 5. Open `http://localhost:8000`.
 
-In local mode, **Demo** opens one chooser where you can sign in as Maya Chen (claimant) or Alex Morgan (finder). Use `http://localhost:8000/demo-login?admin=1` to open the admin overview.
+**Demo** opens one chooser where you can sign in as Maya Chen (claimant) or Alex Morgan (finder). This two-user demo is also available on the deployed site. Use `http://localhost:8000/demo-login?admin=1` locally to open the admin overview.
 
 ### Walk through a claim
 
@@ -23,7 +23,7 @@ The seeded demo includes a pending private claim from Maya Chen on Alex Morgan�
 3. Alex’s My activity page highlights the claim waiting for review. Open the listing, read Maya’s private ownership detail, then choose **Approve** or **Decline**.
 4. Switch back to Maya. Her My claims card shows the result. If Alex approves, Maya can contact the finder from that card or the listing page.
 
-The demo account switch links are only shown in local development mode. The sample claim remains pending until the finder chooses a decision.
+Demo account switching is available from My activity. The sample claim remains pending until the finder chooses a decision. Demo data is shared and resets when the deployment is rebuilt; do not enter real personal information.
 
 ## Microsoft sign-in
 
