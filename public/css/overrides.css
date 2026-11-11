@@ -1,0 +1,3 @@
+.card-status{position:absolute;top:11px;right:11px;z-index:2;background:#142744d9;color:#e0ebfb}
+@media(max-width:900px){.filter-row{align-items:start}.filter-row label{flex:1 1 28%}}
+@media(max-width:620px){.filter-row label{flex:1 1 42%}.filter-row .clear-filter{align-self:center}}
