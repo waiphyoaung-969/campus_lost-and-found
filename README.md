@@ -37,3 +37,9 @@ Register an app in the Microsoft identity platform, add a Web redirect URI that 
 - The admin view shows aggregate activity and recent listing status. Claim decisions remain between each finder and claimant, matching the peer to peer flow in the proposal.
 
 The interface is built with Blade, plain CSS and JavaScript. Photos are stored on Laravel's private local disk; the browser compresses them before upload, with server-side image and size validation.
+
+## Deploying on Vercel
+
+Vercel runs the Laravel app in a FrankenPHP container using `Dockerfile.vercel`, `Caddyfile`, and `vercel.json`. Add an `APP_KEY` and the Microsoft OAuth settings from the section above to the Vercel project's Environment Variables before enabling sign-in. Keep `APP_DEBUG=false` in production.
+
+The image is seeded with demo records so the landing page can render. Vercel containers have temporary local storage: SQLite changes, uploaded photos, and file sessions can disappear when an instance is replaced or requests reach another instance. Use a managed database, shared session store, and object storage before relying on this deployment for real campus reports.
