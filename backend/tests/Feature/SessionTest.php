@@ -23,7 +23,7 @@ class SessionTest extends TestCase
 
     public function test_stateful_spa_can_read_its_member_profile_with_a_session_cookie(): void
     {
-        $member = User::factory()->create();
+        $member = User::factory()->microsoft()->create();
         $this->withMemberSession($member);
 
         $this->getJson('/api/v1/me', ['Origin' => self::FRONTEND])

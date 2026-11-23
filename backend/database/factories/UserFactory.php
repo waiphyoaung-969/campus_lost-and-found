@@ -33,6 +33,15 @@ class UserFactory extends Factory
         ];
     }
 
+    public function microsoft(): static
+    {
+        return $this->state(fn (): array => [
+            'microsoft_oid' => fake()->uuid(),
+            'microsoft_tid' => fake()->uuid(),
+            'password' => null,
+        ]);
+    }
+
     /**
      * Indicate that the model's email address should be unverified.
      */
