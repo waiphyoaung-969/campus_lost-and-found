@@ -60,4 +60,21 @@ class CatalogMigrationTest extends TestCase
         $this->artisan('migrate')->assertSuccessful();
         $this->assertTrue(Schema::hasTable('items'));
     }
+
+    public function test_claims_and_photos_roll_back_independently_of_the_catalog(): void
+    {
+        $this->artisan('migrate')->assertSuccessful();
+        $member = User::factory()->microsoft()->create();
+
+        $this->artisan('migrate:rollback', ['--step' => 2])->assertSuccessful();
+
+        $this->assertFalse(Schema::hasTable('claims'));
+        $this->assertFalse(Schema::hasTable('item_photos'));
+        $this->assertTrue(Schema::hasTable('items'));
+        $this->assertModelExists($member);
+
+        $this->artisan('migrate')->assertSuccessful();
+        $this->assertTrue(Schema::hasTable('claims'));
+        $this->assertTrue(Schema::hasTable('item_photos'));
+    }
 }
