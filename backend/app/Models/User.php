@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -48,5 +49,17 @@ class User extends Authenticatable
             'password' => 'hashed',
             'is_admin' => 'boolean',
         ];
+    }
+
+    /** @return HasMany<Item, $this> */
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    /** @return HasMany<Claim, $this> */
+    public function claims(): HasMany
+    {
+        return $this->hasMany(Claim::class, 'claimant_id');
     }
 }
